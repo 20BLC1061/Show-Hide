@@ -16,23 +16,8 @@ class ShowHide extends Component {
     }))
   }
 
-  renderContainer1 = () => {
-    const {isFirstNameHidden} = this.state
-    if (isFirstNameHidden === true) {
-      return <p className="name-container">Joe</p>
-    }
-    return null
-  }
-
-  renderContainer2 = () => {
-    const {isLastNameHidden} = this.state
-    if (isLastNameHidden === true) {
-      return <p className="name-container">Jonas</p>
-    }
-    return null
-  }
-
   render() {
+    const {isFirstNameHidden, isLastNameHidden} = this.state
     return (
       <div className="container">
         <div className="inner-container">
@@ -46,7 +31,7 @@ class ShowHide extends Component {
               >
                 Show/Hide Firstname
               </button>
-              {this.renderContainer1()}
+              {isFirstNameHidden ? <p className="name-container">Joe</p> : null}
             </div>
 
             <div className="show-hide-container">
@@ -57,7 +42,9 @@ class ShowHide extends Component {
               >
                 Show/Hide Lastname
               </button>
-              {this.renderContainer2()}
+              {isLastNameHidden ? (
+                <p className="name-container">Jonas</p>
+              ) : null}
             </div>
           </div>
         </div>
